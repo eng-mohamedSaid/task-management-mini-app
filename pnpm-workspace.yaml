@@ -1,0 +1,9 @@
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  unrs-resolver: true
+
+# typescript-eslint v8 does not yet support the TypeScript 7 (native) compiler.
+# Pin the whole dependency tree to the 5.x line until it does.
+overrides:
+  typescript: 5.9.3

@@ -1,0 +1,25 @@
+{
+  "app": {
+    "title": "قائمة المهام"
+  },
+  "search": {
+    "placeholder": "ابحث عن مهمة..."
+  },
+  "filter": {
+    "all": "الكل",
+    "complete": "مكتملة",
+    "incomplete": "غير مكتملة"
+  },
+  "note": {
+    "new": "مهمة جديدة",
+    "placeholder": "اكتب مهمتك...",
+    "chooseDate": "اختر التاريخ"
+  },
+  "actions": {
+    "apply": "تطبيق",
+    "cancel": "إلغاء"
+  },
+  "state": {
+    "empty": "لا توجد مهام..."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "app": {
+    "title": "TODO LIST"
+  },
+  "search": {
+    "placeholder": "Search note..."
+  },
+  "filter": {
+    "all": "all",
+    "complete": "Complete",
+    "incomplete": "Incomplete"
+  },
+  "note": {
+    "new": "New Note",
+    "placeholder": "Input your note...",
+    "chooseDate": "choose data"
+  },
+  "actions": {
+    "apply": "Apply",
+    "cancel": "Cancel"
+  },
+  "state": {
+    "empty": "Empty..."
+  }
+}
