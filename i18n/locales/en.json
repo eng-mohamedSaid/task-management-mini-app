@@ -3,23 +3,50 @@
     "title": "TODO LIST"
   },
   "search": {
+    "label": "Search notes",
     "placeholder": "Search note..."
   },
   "filter": {
+    "label": "Filter by status",
     "all": "all",
     "complete": "Complete",
     "incomplete": "Incomplete"
   },
   "note": {
     "new": "New Note",
+    "edit": "Edit Note",
+    "label": "Note",
     "placeholder": "Input your note...",
-    "chooseDate": "choose data"
+    "date": "Due date"
   },
   "actions": {
     "apply": "Apply",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "retry": "Try again",
+    "newTask": "New note"
   },
   "state": {
-    "empty": "Empty..."
+    "empty": "Empty...",
+    "noMatches": "No notes match your search"
+  },
+  "validation": {
+    "titleRequired": "Title is required",
+    "titleTooLong": "Title must be {max} characters or fewer",
+    "dueDateRequired": "Due date is required",
+    "dueDatePast": "Due date must be today or later"
+  },
+  "error": {
+    "loadFailed": "Could not load your notes.",
+    "saveFailed": "Could not save your changes.",
+    "deleteFailed": "Could not delete the note."
+  },
+  "a11y": {
+    "markComplete": "Mark {title} as complete",
+    "markIncomplete": "Mark {title} as not complete",
+    "editTask": "Edit {title}",
+    "deleteTask": "Delete {title}",
+    "switchToDark": "Switch to dark theme",
+    "switchToLight": "Switch to light theme",
+    "switchLanguage": "Change language"
   }
 }

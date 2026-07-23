@@ -3,23 +3,50 @@
     "title": "قائمة المهام"
   },
   "search": {
+    "label": "البحث عن المهام",
     "placeholder": "ابحث عن مهمة..."
   },
   "filter": {
+    "label": "فلتر حسب الحالة",
     "all": "الكل",
     "complete": "مكتملة",
     "incomplete": "غير مكتملة"
   },
   "note": {
     "new": "مهمة جديدة",
+    "edit": "تعديل المهمة",
+    "label": "المهمة",
     "placeholder": "اكتب مهمتك...",
-    "chooseDate": "اختر التاريخ"
+    "date": "التاريخ"
   },
   "actions": {
-    "apply": "تطبيق",
-    "cancel": "إلغاء"
+    "apply": "إضافة",
+    "cancel": "إلغاء",
+    "retry": "حاول مرة أخرى",
+    "newTask": "مهمة جديدة"
   },
   "state": {
-    "empty": "لا توجد مهام..."
+    "empty": "لا توجد مهام...",
+    "noMatches": "لا توجد مهام مطابقة لبحثك"
+  },
+  "validation": {
+    "titleRequired": "العنوان مطلوب",
+    "titleTooLong": "يجب ألا يزيد العنوان عن {max} حرفًا",
+    "dueDateRequired": "التاريخ مطلوب",
+    "dueDatePast": "يجب أن يكون تاريخ اليوم أو بعده"
+  },
+  "error": {
+    "loadFailed": "تعذر تحميل المهام.",
+    "saveFailed": "تعذر حفظ التغييرات.",
+    "deleteFailed": "تعذر حذف المهمة."
+  },
+  "a11y": {
+    "markComplete": "وضع علامة مكتملة على {title}",
+    "markIncomplete": "إلغاء علامة الاكتمال عن {title}",
+    "editTask": "تعديل {title}",
+    "deleteTask": "حذف {title}",
+    "switchToDark": "التبديل إلى المظهر الداكن",
+    "switchToLight": "التبديل إلى المظهر الفاتح",
+    "switchLanguage": "تغيير اللغة"
   }
 }

@@ -6,34 +6,25 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/eslint'],
-
   css: ['~/assets/css/main.css'],
 
-  // Tailwind v4 is configured in CSS (@theme), so the Vite plugin is the
-  // entire integration — no tailwind.config.js, no PostCSS chain.
   vite: {
     plugins: [tailwindcss()],
   },
 
   i18n: {
+    // we can make .env variables for these values, but this is a small task
+    baseUrl: 'https://task-management-todo-app.vercel.app',
     defaultLocale: 'en',
-    // `dir` is consumed by the layout to set <html dir>, which is what makes
-    // Tailwind's logical utilities (ps-/pe-/ms-/me-) mirror in Arabic.
     locales: [
       { code: 'en', name: 'English', dir: 'ltr', file: 'en.json' },
       { code: 'ar', name: 'العربية', dir: 'rtl', file: 'ar.json' },
     ],
-    // The language is a user preference, not a separate page, so we keep one
-    // URL per route and persist the choice in a cookie. Switch to
-    // 'prefix_except_default' if shareable per-language URLs are ever needed.
     strategy: 'no_prefix',
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'todo_locale',
       redirectOn: 'root',
-    },
-    bundle: {
-      optimizeTranslationDirective: false,
     },
   },
 

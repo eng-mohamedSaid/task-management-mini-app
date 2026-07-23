@@ -6,7 +6,6 @@ const head = useLocaleHead()
 
 useHead(() => ({
   htmlAttrs: head.value.htmlAttrs,
-  // Reactive so the tab title translates along with the UI.
   title: t('app.title'),
 }))
 </script>

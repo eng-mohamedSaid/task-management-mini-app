@@ -1,75 +1,88 @@
-# Nuxt Minimal Starter
+# Todo List
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A small task management app built with Nuxt 4, Vue 3 (Composition API), Pinia and Tailwind CSS 4.
+
+Supports creating, editing, deleting and completing notes, searching by title,
+filtering by status, light/dark theming, and English/Arabic with full RTL.
+
+
+## 📌 Project Links
+
+| Resource | Link |
+|----------|------|
+| 🎨 My Figma Design | https://www.figma.com/design/nEBoSaOTZ68A4CzzKpaTk2/ToDo-List?node-id=0-1&t=3KeAYga4Xmd00ilP-1 |
+| 🌐 Live Demo | https://task-management-todo-app.vercel.app |
+| 💻 Local Development | http://localhost:3000 |
+
+## Requirements
+
+- Node.js 20 or newer
+- pnpm 10 or newer
 
 ## Setup
 
-Make sure to install dependencies:
-
 ```bash
-# npm
-npm install
-
-# pnpm
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
 pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+## Scripts
 
-Build the application for production:
+| Command | What it does |
+| --- | --- |
+| `pnpm dev` | Start the dev server |
+| `pnpm build` | Production build |
+| `pnpm preview` | Serve the production build |
+| `pnpm lint` | Run ESLint |
+| `pnpm test` | Run unit tests |
 
-```bash
-# npm
-npm run build
+## Project structure
 
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+```
+app/
+├─ components/
+│  ├─ MainButton.vue        filled / outline button
+│  ├─ Input.vue             search, note title, due date
+│  ├─ Modal.vue             the new/edit note dialog
+│  └─ task/
+│     ├─ Toolbar.vue        search, filter, theme, language
+│     ├─ List.vue           list + loading / empty / error states
+│     ├─ Item.vue           one row
+│     └─ FormModal.vue      create and edit form
+├─ composables/
+│  ├─ useTheme.ts           light/dark toggle
+│  └─ useTaskFilters.ts     debounced search + status filter
+├─ constants/task.ts
+├─ services/task.service.ts mock API
+├─ stores/tasks.ts          Pinia store
+├─ types/task.ts
+├─ utils/                   date and validation helpers
+└─ pages/index.vue          the only page
 ```
 
-Locally preview production build:
+## Notes on the implementation
 
-```bash
-# npm
-npm run preview
+**Mock API.** `services/task.service.ts` simulates a backend with `setTimeout`
+and persists to `localStorage`. JSONPlaceholder was not used because its `/todos`
+resource has no due date field and its writes do not persist, so create, edit and
+delete would appear to work and then vanish on refresh. The store only ever sees
+promises, so replacing this file with real HTTP calls would not require changes
+anywhere else.
 
-# pnpm
-pnpm preview
+**State.** The Pinia store owns the task list and its loading/error state. View
+state — which modal is open, what is typed in the search box — stays in the page
+and the filter composable, so the store stays focused on data.
 
-# yarn
-yarn preview
+**Dark mode.** Colours are defined once in `app/assets/css/main.css` as semantic
+tokens (`surface`, `ink`, `line`). The `.dark` block reassigns those same
+variables, so components never need `dark:` variants. An inline script in
+`nuxt.config.ts` applies the saved theme before first paint to avoid a flash of
+the wrong theme.
 
-# bun
-bun run preview
-```
+**Dates.** Due dates are stored as `YYYY-MM-DD` strings in local time rather than
+timestamps, so a note due Thursday stays due Thursday in any timezone.
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+**Validation.** The title is required and the due date must be today or later.
+When editing an existing note the date rule only applies if the date is actually
+changed — otherwise an already-overdue note could never be saved again.
+
